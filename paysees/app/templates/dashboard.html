@@ -1,0 +1,84 @@
+{% extends 'base.html' %}
+
+
+{% block head %} {% endblock %}
+
+
+{% block body %}
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-12" >
+      <div class="panel panel-default">
+        <div class="panel-heading">
+        Hi <b>{{ g.user.names.capitalize() }}</b> You can now manage your dashboard
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="container">
+   <div class="row">
+      <div class="col-sm-6 col-md-4">
+        <div class="thumbnail">
+          <div class="caption">
+            <p>Tell your customers about your business</p>
+            <p><a href="{{url_for('create_business_profile')}}" class="btn btn-primary" role="button">CREATE BUSINESS PROFILE</a></p>
+          </div>
+        </div>
+      </div>
+
+     <div class="col-sm-6 col-md-4">
+        <div class="thumbnail">
+          <div class="caption">
+	        <p>Picture of sample goods or service</p>
+	        <p><a href="{{url_for('upload')}}" class="btn btn-primary" role="button"> ADD BUSINSSS PROFILE PICTURE</a></p>
+          </div>
+        </div>
+     </div>
+   </div>
+
+   <div class="row">
+     <div class="col-sm-6 col-md-4">
+        <div class="thumbnail">
+          <div class="caption">
+          <p>Note! Good pictures attract customers</p>
+            <p><a href="{{url_for('upload')}}" class="btn btn-primary" role="button"> CHANGE BUSINESS PROFILE PICTURE</a></p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="col-sm-6 col-md-4">
+         <div class="thumbnail">
+           <div class="caption">
+             <p>See how your customers will view your profile</p>
+             <p><a href="/profile/{{ g.user.names }}" class="btn btn-primary" role="button">VIEW YOUR PROFILE</a></p>
+           </div>
+         </div>
+     </div>
+   </div>
+
+   <div class="col-sm-6 col-md-4">
+      <div class="thumbnail">
+        <div class="caption">
+           <p><strong>NOTE!</strong>You can edit to add a new service or product or removing a service you no longer offer</p>
+           <p><a href="/edit/products/services/" class="btn btn-primary" role="button">EDIT PRODUCTS OR SERVICES</a></p>
+        </div>
+      </div>
+   </div>
+
+   <div class="col-sm-6 col-md-4">
+      <div class="thumbnail">
+        <div class="caption">
+           <p><strong>NOTE!</strong> that Editing business profile requires resubmitting all information again</p>
+           <p><a href="{{url_for('create_business_profile')}}" class="btn btn-primary" role="button"> EDIT BUSINESS PROFILE</a></p>
+        </div>
+      </div>
+   </div>
+
+   </div>
+
+
+{% endblock %}

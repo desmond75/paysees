@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{% block head %} {% endblock %}
+
+{% block body %}
+
+<!--Search bar on the result page-->
+<div class="container">
+<div class="row">
+   <div class="col-md-6  col-md-offset-3">
+      <form action="{{ url_for('search2') }}" method="post">
+		  <div class="input-group ">
+		    <input type="text"  class="form-control" name="query2" placeholder="Search">
+		    <div class="input-group-btn">
+		      <button class="btn btn-default" type="submit">
+		        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+		      </button>
+		    </div>
+          </div><!-- /input-group -->
+       </form> 
+   </div>  	
+ </div> 
+ <br>
+                     <!-- displays user search input -->
+                     
+ {% if results %} <!--checks if there is any result -->
+   <h3>Search results for "<span style="color:red;"><b><i>{{ query }}</i></b></span>"</h3>
+
+   <hr>
+	 {% for result in  results %}
+	   <div class="row">  
+	     <div class="col-md-6">    
+	        <dl>
+	        <!-- link to a user profile -->
+		      <a href="{{url_for('user',user_id=result.id)}}">
+		          <!--IMAGE DISPLAY -->
+		         <img src="{{ result.image_url }}" class="img-thumbnail" style="width:180px;height:auto;" alt="{{ result.image_filename }}">
+		         <dt>{{ result.business_name1 }}</dt>
+	                    </a>
+	                   
+	          
+	             <!-- Displays the firt 200 words of product discription-->
+	            <dd>{{ result.product_description1 }}....</dd>
+	        </dl>
+	      </div><!-- End of div col-md-8 -->
+       </div><!-- End of div row-->
+	{% endfor %}
+	
+</div>
+{% else %}
+<!--Displays if search query does not match with anything data in the database-->
+<div class="container">
+  <div class="row">
+   <div class=" col-md-4">
+   	 <h3>No results found for "<span style="color:red;"><b><i>{{ query }}</i></b></span>"</h3>
+	 <div>
+		<ul>
+			<li>Make sure all words are spelled correctly.</li>
+			<li>Try different keywords.</li>
+			<!--link to the instruction page on how to search paysees-->
+			<li><a href="{{ url_for('how_to_search') }}">See</a> how to search for what you want</li>
+		</ul> 
+	 </div>
+   </div>
+  </div>
+</div>
+{% endif %}
+
+{% endblock %}

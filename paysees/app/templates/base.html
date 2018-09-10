@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+ <html lang=en> 
+ <head>	
+	  <meta charset=utf-8>
+	  <title> </title>
+	  <meta content="width=device-width,initial-scale=1" name=viewport>
+	  <link href="{{ url_for('static',filename='css/bootstrap.min.css') }}" rel="stylesheet">
+	  <link rel="shortcut icon"  href="{{ url_for('static',filename='favicon.icon') }}">
+<!--Begining of Search box styling -->
+	  <style>
+	  
+	  .container{
+	  	margin-top: 100px;
+	  }
+	  .glyphicon-search{
+	  	font-size: 18px;
+	  }
+	  .btn-default{
+	  	background: #778899;
+	  	width:100px;
+	  	padding:5px;
+
+	  }
+	  .form-control{
+	  	width: 100px;
+	  }
+	  </style>
+
+	  <!--End of Search box styling -->
+  </head>
+  {% block head %} {% endblock %}
+  <body>
+        <!-- start of nav -->
+
+	{% if g.user.is_authenticated %}
+  <nav class="navbar navbar-default" style="font-size:15px; color:#FFFFF0;">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>                        
+        </button>
+        <a class="navbar-brand" href="{{ url_for('dashboard') }}">
+          <img  style="max-width:150px; margin-top:-7px;" src="{{ url_for('static',filename='img/base_logo.png')}}">
+        </a>
+      </div>
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="{{ url_for('dashboard') }}">HOME</a></li>	
+          <!--<li><a href="/profile/{{ g.user.names }}">YOUR PROFILE</a></li>
+          <li><a href="{{url_for('create_business_profile')}}">CREATE BUSINESS PROFILE</a></li>
+          <li><a href="{{url_for('upload')}}">ADD OR CHANGE PROFILE PICTURE</a></li> -->
+          <!--<li><a href="{{url_for('dashboard')}}">GO BACK TO DASHBOARD</a></li>-->
+          <li><a href="/profile/{{ g.user.names }}" >VIEW YOUR PROFILE</a></li>
+          <li><a href="{{url_for('logout')}}">LOG OUT</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+{% else %}	
+<nav class="navbar navbar-default" style="font-size:15px; color:#FFFFF0;">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" href="{{ url_for('home_page') }}">
+        <img  style="max-width:150px; margin-top:-7px;" src="{{ url_for('static',filename='img/base_logo.png')}}">
+      </a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="{{ url_for('home_page') }}">HOME</a></li>	    
+        <li><a href="{{url_for('create_account')}}"> CREATE ACCOUNT</a></li>
+        <li><a href="/login/account">LOG IN</a></li>
+      </ul>
+	      {% endif %}
+      </div>
+    </div>
+  </nav>
+<!--Greets the current user
+{% if g.user.is_authenticated %}
+<div class="container-fluid">
+   <div class="row">
+     <div class="col-md-4">
+		 <div class="panel panel-primary">
+		   <div class="panel-heading">
+			  Hi {{ g.user.names.capitalize() }}!
+			</div>
+		  </div>
+     </div>
+    </div>
+</div>
+ {% endif %} 
+ -->
+
+
+
+	  <!--Begining of Message flashing -->
+
+		<!--<div class="alert alert-success alert-dismissable">
+	       <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a> -->
+
+{% with messages = get_flashed_messages() %}
+   {% if messages %}
+     {% for message in messages %}
+     <div class="alert alert-success alert-dismissible" role="alert">
+       <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span ></button>
+        <ul>
+          <li>
+<strong>{{ message }}</strong>              
+          </li>
+        </ul>
+
+     </div>
+
+   {% endfor %}
+ {% endif %}
+{% endwith %}			
+<!--  </div> -->
+      
+	           <!--End of Message flashing -->
+	        
+        
+       
+        	
+{% block body %} {% endblock %}
+        <!-- start of body -->
+       
+
+
+
+
+
+
+        <!-- start of footer-->
+
+      <div class="container">
+        <div class="navbar navbar-default navbar-fixed-bottom" style="background-color:#D3D3D3;" >
+          <p class="navbar-text pull-left"><a href="{{url_for('about')}}">About</a>   <a href="{{url_for('privacy')}}">Privacy</a>    <a href="{{url_for('terms')}}">Terms</a> <a href="{{url_for('contact')}}">Contact</a> <a href="{{url_for('advertise')}}">Advertise</a> <a href="{{url_for('all_products')}}">View all products</a></p>    	
+        </div>    	
+      </div>
+
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+   
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="{{ url_for('static', filename='js/bootstrap.js') }}"></script> 
+
+</body>
+</html

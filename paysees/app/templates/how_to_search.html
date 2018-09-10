@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block head %} {% endblock %}
+
+
+
+
+{% block body %}
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+       <h4><b>How to search Paysees for what you want</b></h4>
+	<ul>
+	  <li>Search and locate where to get any product or service at your location in just 3 words eg <b>Item or Service name  in location name </b> </li>	
+		<li>Example if you are looking for a shop to buy a phone in Town or City <b>X</b>, just enter <b>phone in Town X</b> </li>
+    <li>If you cannot get any results from your particular location, you can try a general search results for the entire city <b>Phone in XXX City</b> </li>
+		<li>Ensure all your spelling and keywords are spelled corectly</li>	
+	</ul>
+    </div>
+    <div class="col-md-4">
+      <div class="thumbnail">
+        <div class="caption">
+          <p><a href="{{ url_for('home_page') }}" class="btn btn-primary" role="button">Go back and search again</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

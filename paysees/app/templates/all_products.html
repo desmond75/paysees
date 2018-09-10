@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block head %} {% endblock %}
+
+
+
+
+{% block body %}
+<div class="container">
+    <h4><b>List of shops</b></h4>
+       <hr>
+    <div class="row">
+      <div class="col-md-6">
+       {% for product in products %}
+         <a href="{{url_for('user',user_id=product.id)}}">
+              <!--IMAGE DISPLAY -->
+              <dt>{{ product.business_name1 }}</dt>
+              <img src="{{ product.image_url }}" class="img-thumbnail" style="width:180px;height:auto;" alt="{{ product.image_filename }}">  
+         </a>
+         <dd>{{ product.product_description1 }}....</dd>
+         </dl>
+       {% endfor %}
+      </div>
+    </div>
+</div>
+{% endblock %}

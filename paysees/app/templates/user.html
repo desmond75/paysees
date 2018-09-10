@@ -1,0 +1,134 @@
+{% extends 'base.html' %}
+
+{% block head %} {% endblock %}
+
+
+{% block body %}
+
+<div class="container">
+<div class="row">
+   <div class="col-md-6  col-md-offset-3">
+      <form action="{{ url_for('search3') }}" method="post">
+		  <div class="input-group ">
+		    <input type="text"  class="form-control" name="query3" placeholder="Search Again!">
+		    <div class="input-group-btn">
+		      <button class="btn btn-default" type="submit">
+		        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+		      </button>
+		    </div>
+          </div><!-- /input-group -->
+       </form> 
+   </div>  	
+ </div> 
+ <br>
+
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-md-4">
+
+      <!--checks if user has profile image-->
+      {% if user.image_url %}
+      <img src="{{ user.image_url }}" class="img-thumbnail" alt="{{user.image_filename }}" style="width:350px;height:auto;"><br>
+
+      <!--displays default paysees image as profile image-->
+       {% else %}
+        <p><img src="{{ url_for('static',filename='img/base_logo.png')}}" style="width:350px;height:auto;"></p>
+       {% endif %}
+
+    </div>
+    <div class="col-xs-12 col-md-8">
+       <div class="panel panel-primary"> 
+          <div class="panel-heading">
+            <b>Profile/Contact Information</b>
+          </div>
+       </div>
+          <!--<div class="panel-body">-->
+	         <table class="table">
+		        <tbody>
+		        <tr> 
+				          <td><b>City</b></td>
+				          {% if user.city_name %}
+				          <td>{{ user.city_name.capitalize() }}</td>
+				          {% endif %}
+				      </tr>	
+			          <tr> 
+					      <td><b>Names of Business Owner:</b></td>
+					      {% if user.names %}			                 
+					      <td>{{ user.names }}</td>
+					      {% endif %}
+				      </tr>	
+				      <tr> 
+			              {% if user.business_name1 %}
+					      <td><b>Business Name:</b></td>			        		          
+					      <td>{{ user.business_name1}} </td>
+					      {% endif %}
+				      </tr>
+				      <tr> 
+					      <td><b>What we do:</b></td>
+					      {% if user.product_description1 %}				       
+					      <td>{{ user.product_description1  }}</td>
+					      {% endif %}
+				      </tr>
+				      <tr> 
+					      <td><b>List of Products/Services: </b></td>
+					      {% if user.search_tags %}
+					      <td>{{ user.search_tags }}</td>
+					      {% endif %}
+				      </tr>
+				      
+				      <tr> 
+					      <td><b>Contact: </b></td>
+					      {% if user.contact_number1 %}
+					      <td>{{ user.contact_number1 }}</td>
+					      {% endif %}
+				      </tr>
+				      
+				      <tr> 
+				          <td><b>Location:</b></td>
+				          {% if user.business_location1 %}
+				          <td>{{ user.business_location1 }}</td>
+				          {% endif %}
+				      </tr>	
+				      <tr> 
+				          <td><b>Store/Shed Number </b></td>
+				          {% if user.store_number %}
+				          <td>{{ user.store_number }}</td>
+				          {% endif %}
+				      </tr>     		          
+				      <tr> 
+					      <td><b>Country:</b></td>
+					      {% if  user.country %}
+					      <td>{{ user.country }}</td>
+					      {% endif %}
+				      </tr>
+				      
+		        </tbody>	
+	         </table> 	
+	     <!--</div>-->
+	   <!--</div>--><!-- Ending div panel panel-primary if div panel-body is enable -->
+  </div>
+</div>
+</div>
+
+<div class="container">
+   <div class="row">
+     <div class="col-md-4">
+       <img src="{{url_for('static',filename='img/alert.jpg')}}" class="img-responsive" style="width:100px; height:auto;" alt="alert pic"> 
+        <p style="color:red;">Safety tips for customers</p>
+       
+       <div class="panel panel-danger">
+		  <div class="panel-heading">
+		    <ul>
+			    <li>Always tell the seller you got his/her contact on <b>paysees</b></li>
+			    <li>Meet the seller in a public place that you are familiar with for any extra business</li>
+			    <li>Avoid advance payments through Western Union or other services</li>
+			    <li>Do not give personal information (bank details, credit/debit card number)</li>
+		    </ul>
+		  </div>
+	   </div>
+     </div>
+   </div>
+</div>
+{% endblock %}

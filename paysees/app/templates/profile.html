@@ -1,0 +1,103 @@
+{% extends 'base.html' %}
+
+{% block head %} {% endblock %}
+
+
+{% block body %}
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-md-4">
+    <!--{% if user.image_url %}-->
+      <img src="{{ user.image_url }}" class="img-thumbnail" alt="{{user.image_filename }}" style="width:350px;height:auto;"><br>
+    <!--{% else %}-->
+    <!--<b>The user has no profile image </b>-->
+   <!-- {% endif %}-->
+    </div>
+    <div class="col-xs-12 col-md-8">
+       <div class="panel panel-primary"> 
+          <div class="panel-heading">
+            <b>Profile/Contact Information</b>
+          </div>
+       </div>
+          <!--<div class="panel-body">-->
+          <!--Displays users information-->
+	         <table class="table">
+		        <tbody>
+		             <!-- {% if user.city_name %} -->
+				      <tr> 
+				          <td><b>City</b></td>
+				          <td>{{ user.city_name.capitalize() }}</td>
+				      </tr>	
+				      <!--{% endif %}-->
+
+			          <tr> 
+					      <td><b>Names of Business Owner:</b></td>
+					    <!--  {% if user.names %}-->			                 
+					      <td>{{ user.names }}</td>
+					      <!--{% endif %}-->
+				      </tr>	
+				      
+				     <!-- {% if user.business_name1 %}-->
+				      <tr> 
+					      <td><b>Business Name:</b></td>			        		          
+					      <td>{{ user.business_name1}} </td>
+				      </tr>
+				      <!--{% endif %}-->
+
+				      {% if user.product_description1 %}
+				      <tr> 
+					      <td><b>What We do:</b></td>				       
+					      <td>{{ user.product_description1  }}</td>
+				      </tr>
+				      {% endif %}
+
+				      {% if user.search_tags %}
+				      <tr> 
+					      <td><b>List of Products/Services: </b></td>
+					      <td>{{ user.search_tags }}</td>
+				      </tr>					     
+				      {% endif %}
+
+				       {% if user.contact_number1 %}
+				      <tr> 
+					      <td><b>Contact: </b></td>
+					      <td>{{ user.contact_number1 }}</td>
+				      </tr>
+				       {% endif %}	
+
+				      {% if user.business_location1 %}
+				      <tr> 
+				          <td><b>Location:</b></td>
+				          <td>{{ user.business_location1 }}</td>   
+				      </tr>	
+				      {% endif %}
+
+				      {% if user.store_number %}		      	
+				      <tr> 
+				          <td><b>Store/Shed Number </b></td>
+				          <td>{{ user.store_number }}</td>
+				      </tr> 
+				      	{% endif %}
+
+				      {% if  user.country %}    	          
+				      <tr> 
+					      <td><b>Country:</b></td>		      
+					      <td>{{ user.country }}</td>
+				      </tr>
+			        {% endif %}
+				      {% if  user.email %}    	          
+				      <tr> 
+					      <td><b>Country:</b></td>		      
+					      <td>{{ user.email }}</td>
+				      </tr>
+				      {% endif %}
+
+				      
+		        </tbody>	
+	         </table> 	
+	     <!--</div>-->
+	    <!--</div>-->
+  </div>
+</div>
+
+{% endblock %}

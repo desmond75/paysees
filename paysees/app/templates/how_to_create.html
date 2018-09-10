@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block head %} {% endblock %}
+
+
+
+
+{% block body %}
+<div class="container">
+ <div class="row">
+    <div class="col-md-6">
+     <h4><b>How to Create a business profile on paysees</b></h4>
+	 <ul>
+		<li>Enter your Exact business name.Create one if you don't have it already as it is very important for customers to search you through your business name  </li>
+		<li>Enter a correct contact information that can be use to reach you instantly by customers <b>Very important</b></li>
+		<li>Descripe what you are selling or doing keep it short eg if you own a store base in selling phones you can enter it like this <b>Phone  in X location</b> where <b>X</b> is the Your store location name </li>	
+		<li>Enter Your exact business location.You can do this by targeting a popular service in your area eg a <b>church,Hotel,Juction,Street name,Quater name, and other popular services that can be easily located to get to your business location etc See and example of store location</b>  <strong>Business  Located in YYY quater Oppiste XXX hotel or along XXX street opposite BBB hotel</strong></li>
+    <li>List the products or services you offer or sell</li>
+		<li>Provide a shed Number if you have one</li>	
+		<li>Enter the name of your City <i>Please make sure to spell this correct</i></li>
+		<li>A good picture of sample goods is also needed as its very important for customers to always see what there are looking for.</li>		
+		
+	 </ul>
+
+
+     </div>
+     <div class="col-md-4">
+      <div class="thumbnail">
+        <div class="caption">
+          <p><a href="{{ url_for('create_business_profile') }}" class="btn btn-primary" role="button">Go back to create business profile</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

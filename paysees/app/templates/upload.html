@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block head %} {% endblock %}
+
+
+
+
+{% block body %}
+
+	<div class="container">
+	  <h1>Upload a photo of Products/Service</h1><hr><br>
+	     <form method=POST enctype=multipart/form-data action="{{ url_for('upload') }}">
+
+			<div style="width:300px;height:300px;border:2px solid #000;"><br><br><br><br><br><br><!--create the square on the image upload page -->
+				 {{ form.hidden_tag() }}
+				 <span style="float:right;">{{ form.image }}</span>
+		    </div><br>
+            <button type="submit" class="btn btn-primary"  value="Upload!">Upload</button>
+	    </form><br><br>
+	    
+	    <!--Link takes users back to the dashboard incase user has no picture to upload-->
+	    <div class="row">
+	      <div class="col-md-3">
+		    <p> <a href="{{url_for('dashboard')}}"><button  class="btn btn-success btn-block">Upload Picture Later</button></a></p>
+		  </div>
+	    </div>
+	</div>
+
+{% endblock %}

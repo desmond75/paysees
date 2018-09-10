@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block head %} {% endblock %}
+
+
+
+
+{% block body %}
+<div class="container">
+ <h4><b>About Paysees</b></h4>
+ <hr>
+    <div class="row">
+      <div class="col-md-6">
+	 <p>Paysees is a search engine platform that helps people to locate and buy  goods and services around them and at the same time also helps business owners to sell their pruducts or services since the can be easily located by customers.Paysees is based in Africa/Cameroon</p>
+	 <p>Paysees was launched in october 5 2017 and is founded by <a href="https://www.facebook.com/desmond.7517">Fon Desmond Ade</a>.Lately we discover that people do not only search to shop online but people also want to search and locate where they can buy goods and services in their local towns and cities as they face difficulties in doing that.Business owners have relied  on the old method of doing business, whereby a customer must pass by a business location  before knowing there is a business in that area,Paysees is design to solve this problem and allow every business owner to get his/her business online and help their customers to easily locate their business hence increasing business sales.Paysees has a very strong team of professionals who are  passionate about what there are doing.
+	 </p>
+	 <p>Paysees has an offices in Bamenda <a href="{{url_for('contact')}}">Contact Us</a>
+    </div>
+      <div class="col-md-3">
+        <div class="thumbnail">
+          <div class="caption">
+            <p><a href="{{url_for('create_account')}}" class="btn btn-primary" role="button">CREATE ACCOUNT </a></p>
+          </div>
+        </div>
+      </div>
+</div>
+
+
+{% endblock %}

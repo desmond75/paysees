@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+
+{% block head %} {% endblock %}
+
+
+{% block body %}
+
+<div class="container">
+ <div class="jumbutron">
+  <form action="{{ url_for('create_business_profile') }}" method="POST" name="create_account" class="form-signin">
+  	 <h2 class="form-signin-heading"><b>Create Business Profile </b> </h2>
+  	 <hr>
+  	    <label>Name Of Business </label><br>
+  	    
+		    <input type="text" name="business_name1"  size="35" placeholder="Business name "><br><br>
+		    <label>Contact Number </label><br>
+            <input type="text" name="contact_number1" size="35" placeholder="Your phone number"><br><br>
+            <label>What do you sell or do and your location?eg If your store sells mens shoe you should enter >>> <i>mens shoe in location name</i><a href="{{url_for('how_to_create')}}">SEE HOW</a></label><br>
+		    <textarea name="product_description1" rows="2" cols="35" name="store_description" placeholder="Keep it short and brief 3 words is best" style="resize:none;"></textarea><br><br>
+		    <label>Brief description of Business Location eg (<b>Shoe store in <b>X</b> opposite <b>Y</b> hotel</b>)<a href="{{url_for('how_to_create')}}">SEE HOW</a></label><br>
+		    <textarea name="describe_location1" rows="3" cols="35" placeholder="Example, Click on SEE HOW for help " style="resize:none;"></textarea><br>
+		    <label>List of Goods or Services you Offer</label><br>
+		    <textarea name="search_tags" rows="2" cols="35"  placeholder="Example,Mens jeans,Mens T-shirt, Mens shoes etc" style="resize:none;"></textarea><br>
+		    <label>Store or Shed Number </label><br>
+		    <input type="text" name="store_number" placeholder="Store or Shed Number" size="35"><br><br>
+		    <label>City Name eg <b>Bamenda</b>  </label><br>
+		    <input type="text" name="city_name" placeholder="City Name" size="35"><br>
+
+		    <span style="color:red;"> {{ FieldError }}</span><br>
+		    
+	 <button class="btn btn-primary  " type="submit" >CONTINUE</button>
+
+   </form>
+  </div>
+</div>
+
+{% endblock %}
+
+
